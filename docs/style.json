@@ -5909,69 +5909,10 @@
       "filter": [
         "match",
         [
-          "geometry-type"
-        ],
-        [
-          "Polygon",
-          "MultiPolygon"
-        ],
-        [
-          "match",
-          [
-            "get",
-            "layer"
-          ],
-          [
-            "-1",
-            "-2",
-            "-3",
-            "-4",
-            "-5"
-          ],
-          false,
-          [
-            "match",
-            [
-              "get",
-              "building"
-            ],
-            [
-              "train_station",
-              "roof"
-            ],
-            false,
-            true
-          ]
-        ],
-        false
-      ],
-      "id": "pg-building-shadow",
-      "minzoom": 16,
-      "paint": {
-        "fill-color": [
-          "rgb",
-          131,
-          124,
-          124
-        ],
-        "fill-translate": [
-          2,
-          2
-        ]
-      },
-      "source": "v",
-      "source-layer": "building",
-      "type": "fill"
-    },
-    {
-      "filter": [
-        "match",
-        [
           "get",
           "building"
         ],
         [
-          "train_station",
           "roof"
         ],
         false,
@@ -6016,7 +5957,29 @@
             215
           ]
         ],
-        "fill-extrusion-height": 10
+        "fill-extrusion-height": [
+          "max",
+          [
+            "to-number",
+            [
+              "get",
+              "height"
+            ]
+          ],
+          [
+            "*",
+            [
+              "to-number",
+              [
+                "get",
+                "building:levels"
+              ]
+            ],
+            3.88
+          ],
+          5
+        ],
+        "fill-extrusion-opacity": 0.7
       },
       "source": "v",
       "source-layer": "building",
@@ -6101,34 +6064,6 @@
       "source": "v",
       "source-layer": "building",
       "type": "fill"
-    },
-    {
-      "filter": [
-        "match",
-        [
-          "geometry-type"
-        ],
-        [
-          "Polygon",
-          "MultiPolygon"
-        ],
-        true,
-        false
-      ],
-      "id": "pg-building-outline",
-      "minzoom": 14,
-      "paint": {
-        "line-color": [
-          "rgb",
-          183,
-          174,
-          174
-        ],
-        "line-width": 1
-      },
-      "source": "v",
-      "source-layer": "building",
-      "type": "line"
     },
     {
       "filter": [
