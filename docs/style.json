@@ -18,6 +18,28 @@
       "type": "background"
     },
     {
+      "id": "relief",
+      "maxzoom": 10,
+      "minzoom": 0,
+      "paint": {
+        "raster-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          6,
+          1,
+          10,
+          0
+        ]
+      },
+      "source": "relief",
+      "type": "raster"
+    },
+    {
       "filter": [
         "match",
         [
@@ -6854,6 +6876,15 @@
   ],
   "site_root": "https://optgeo.github.io/kokoromi-western-balkans-tiles",
   "sources": {
+    "relief": {
+      "maxzoom": 5,
+      "minzoom": 0,
+      "tileSize": 512,
+      "tiles": [
+        "https://optgeo.github.io/relief/zxy/{z}/{x}/{y}.png"
+      ],
+      "type": "raster"
+    },
     "v": {
       "attribution": "OpenStreetMap contributors, <img src='https://unopengis.github.io/watermark/watermark.png'>",
       "maxzoom": 15,
